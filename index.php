@@ -17,11 +17,13 @@
 
 		// Check connection
 		if ($conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
+			echo "Failed to connect to MySQL: " . $conn->connect_error;
+  			die("Connection failed: " . $conn->connect_error);
+			exit();
 		}
 
 		// Query database for all rows in the table
-		$sql = "SELECT * FROM mytable";
+		$sql = "SELECT * FROM employees;";
 		$result = $conn->query($sql);
 
 		if ($result->num_rows > 0) {
